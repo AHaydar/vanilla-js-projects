@@ -22,6 +22,20 @@ body {
     flex-direction: column;
 }
 
+.key-container {
+    margin: 50px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.key-name {
+    background-color: yellowgreen;
+    border: 1px solid black;
+    margin: 50px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 2.5em;
+}
+
 .key-code {
     background-color: red;
     border: 1px solid black;
