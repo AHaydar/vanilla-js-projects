@@ -1,0 +1,31 @@
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+}
+
+#container {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#get-code-Label {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 2.5em;
+}
+
+.align-content-vertical {
+    flex-direction: column;
+}
+
+.key-code {
+    background-color: red;
+    border: 1px solid black;
+    margin: 50px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 2.5em;
+}
