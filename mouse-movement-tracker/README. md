@@ -1,0 +1,2 @@
+# Track mouse movement in browser
+This is a vanilla js implementation to display the movement of the mouse in the browser by moving a circle next to it.
