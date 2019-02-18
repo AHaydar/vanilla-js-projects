@@ -4,13 +4,15 @@ let paragraph = document.querySelector('.paragraph');
 const originalParagraphText = paragraph.innerHTML;
 document.addEventListener('input', function(e){
     paragraph.innerHTML = originalParagraphText;
-    let valueSearched = inputBox.value;    
+    let valueSearched = inputBox.value;
     //Highlight the value in paragraph
-    let re = new RegExp(valueSearched, 'g');
-    paragraph.innerHTML = paragraph.innerHTML.replace(re,`<span class='highlight'>${valueSearched}</span>`)
+    if(valueSearched !== ''){
+        let re = new RegExp(valueSearched, 'g');
+        paragraph.innerHTML = paragraph.innerHTML.replace(re,`<span class='highlight'>${valueSearched}</span>`)
     
     //Uncomment the following line to use the highlight function instead of regex
     // paragraph.innerHTML = highlight(valueSearched, paragraph.innerHTML);
+    }
 });
 
 
