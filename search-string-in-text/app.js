@@ -1,10 +1,12 @@
 //Get the input element and print the text inside it
 const inputBox = document.querySelector('.search-box');
+let paragraph = document.querySelector('.paragraph');
+const originalParagraphText = paragraph.innerHTML;
 document.addEventListener('keypress', function(e){
+    paragraph.innerHTML = originalParagraphText;
     if(e.code=="Enter") {
         let valueSearched = inputBox.value;    
         //Highlight the value in paragraph
-        let paragraph = document.querySelector('.paragraph');
         let re = new RegExp(valueSearched, 'g');
         paragraph.innerHTML = paragraph.innerHTML.replace(re,`<span class='highlight'>${valueSearched}</span>`)
         
