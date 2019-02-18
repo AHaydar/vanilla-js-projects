@@ -2,17 +2,15 @@
 const inputBox = document.querySelector('.search-box');
 let paragraph = document.querySelector('.paragraph');
 const originalParagraphText = paragraph.innerHTML;
-document.addEventListener('keypress', function(e){
+document.addEventListener('input', function(e){
     paragraph.innerHTML = originalParagraphText;
-    if(e.code=="Enter") {
-        let valueSearched = inputBox.value;    
-        //Highlight the value in paragraph
-        let re = new RegExp(valueSearched, 'g');
-        paragraph.innerHTML = paragraph.innerHTML.replace(re,`<span class='highlight'>${valueSearched}</span>`)
-        
-        //Uncomment the following line to use the highlight function instead of regex
-        // paragraph.innerHTML = highlight(valueSearched, paragraph.innerHTML);
-    }
+    let valueSearched = inputBox.value;    
+    //Highlight the value in paragraph
+    let re = new RegExp(valueSearched, 'g');
+    paragraph.innerHTML = paragraph.innerHTML.replace(re,`<span class='highlight'>${valueSearched}</span>`)
+    
+    //Uncomment the following line to use the highlight function instead of regex
+    // paragraph.innerHTML = highlight(valueSearched, paragraph.innerHTML);
 });
 
 
