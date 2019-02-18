@@ -1,0 +1,32 @@
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+}
+
+.container {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.clock {
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    border: 8px solid black;
+}
+
+.hand {
+    width: 10%;
+    height: 3px;
+    background: black;
+    position: absolute;
+    top: 50%;
+    transform: rotate(90deg);
+    transform-origin: 100%;
+    /* transition: 0.5s; */
+}
