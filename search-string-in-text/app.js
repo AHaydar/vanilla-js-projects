@@ -1,4 +1,3 @@
-//Get the input element and print the text inside it
 const inputBox = document.querySelector('.search-box');
 let paragraph = document.querySelector('.paragraph');
 const originalParagraphText = paragraph.innerHTML;
@@ -27,3 +26,7 @@ function highlight(text, paragraph) {
         return paragraphHighlighted;
     }
 }
+
+//               ____________      |||||||
+//              /___________/|    ( -   - )
+//              |           |         -
