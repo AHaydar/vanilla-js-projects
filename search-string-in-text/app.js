@@ -1,32 +1,49 @@
-const inputBox = document.querySelector('.search-box');
-let paragraph = document.querySelector('.paragraph');
-const originalParagraphText = paragraph.innerHTML;
-document.addEventListener('input', function(e){
-    paragraph.innerHTML = originalParagraphText;
-    let valueSearched = inputBox.value;
-    //Highlight the value in paragraph
-    if(valueSearched !== ''){
-        let re = new RegExp(valueSearched, 'g');
-        paragraph.innerHTML = paragraph.innerHTML.replace(re,`<span class='highlight'>${valueSearched}</span>`)
+document.getElementById('search-submit').onclick = function(e){
+
+    //Get pattern
+    const pattern = document.getElementById('pattern').value;
+    const re = new RegExp(pattern, 'g');
+
+    //Get string
+    const searchString = document.getElementById('incoming').value
     
-    //Uncomment the following line to use the highlight function instead of regex
-    // paragraph.innerHTML = highlight(valueSearched, paragraph.innerHTML);
+    let matchArray;
+    let resultString = '<pre>';
+    let first = 0;
+    let last = 0;
+
+    //find each match
+    while((matchArray = re.exec(searchString)) != null) {
+        last = matchArray.index
+
+        // get all of string up to match, concatenate
+        resultString += searchString.substring(first, last);
+        // add matched with class
+        resultString += `<span class="highlight">${matchArray[0]}</span>`;
+        first = re.lastIndex;
     }
-});
 
+    // finsish off the String
+    resultString += searchString.substring(first, searchString.length);
+    resultString += '</pre>'
+    
+    //insert into page
+    document.getElementById('search-result').innerHTML = resultString;
 
-function highlight(text, paragraph) {
-    const index  = paragraph.indexOf(text);
-    if(index > 0) {
-        let paragraphHighlighted = paragraph.substring(0, index) + 
-        "<span class='highlight'>" + 
-        paragraph.substring(index, (index + 1) + text.length) +
-        "</span>" + 
-        paragraph.substring(index + 1 + text.length);
-        return paragraphHighlighted;
-    }
-}
+};
 
-//               ____________      |||||||
-//              /___________/|    ( -   - )
-//              |           |         -
+/*
+See the kitten on the wall, sporting with the leaves that fall,
+Withered leaves—one—two—and three, from the lofty elder-tree!
+Through the calm and frosty air, of this morning bright and fair . . .
+—But the kitten, how she starts; Crouches, stretches, paws, and darts!
+
+First at one, and then its fellow, just as light and just as yellow;
+There are many now—now one—now they stop and there are none;
+What intenseness of desire, in her upward eye of fire!
+
+With a tiger-leap half way, now she meets the coming prey,
+Lets it go as fast, and then, has it in her power again:
+Now she works with three or four, like an Indian Conjuror;
+Quick as he in feats of art, far beyond in joy of heart.
+*/

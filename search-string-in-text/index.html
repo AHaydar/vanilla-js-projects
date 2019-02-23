@@ -7,50 +7,14 @@
     </head>
 
     <body>
-        <div id="container">
-            <label>
-                Search: <input class="search-box" />
-            </label>
-            <p class="paragraph">
-                See the kitten on the wall,
-                Sporting with the leaves that fall.
-                Withered leaves - one - two - three
-                From the lofty elder tree.
-                Though the calm and frosty air,
-                Of this morning bright and fair.
-                Eddying round and round they sink,
-                Softly, slowly; one might think.
-                From the motions that are made,
-                Every little leaf conveyed
-                Sylph or Faery hither tending,
-                To this lower world descending.
-                Each invisible and mute,
-                In his wavering parachute.
-                <br />
-                <br />
-                But the Kitten, how she starts,
-                Crouches, stretches, paws, and darts!
-                First at one, and then its fellow,
-                Just as light and just as yellow.
-                There are many now - now one,
-                Now they stop and there are none.
-                What intenseness of desire,
-                In her upward eye of fire!
-                With a tiger-leap half-way,
-                Now she meets the coming prey.
-                Lets it go as fast, and then;
-                Has it in her power again.
-                Now she works with three or four,
-                Like an Indian conjurer;
-                Quick as he in feats of art,
-                Far beyond in joy of heart.
-                Where her antics played in the eye,
-                Of a thousand standers-by,
-                Clapping hands with shout and stare,
-                What would little Tabby care
-                For the plaudits of the crowd?
+        <form id="text-search">
+            <textarea id="incoming" cols="150" rows="10"></textarea>
+            <p>
+                Search pattern: <input id="pattern" type="text" />
             </p>
-        </div>
+        </form>
+        <button id="search-submit">Search for pattern</button>
+        <div id="search-result"></div>
         <script src="app.js"></script>
     </body>
 </htm>
