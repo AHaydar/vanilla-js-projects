@@ -2,33 +2,38 @@ document.getElementById('search-submit').onclick = function(e){
 
     //Get pattern
     const pattern = document.getElementById('pattern').value;
-    const re = new RegExp(pattern, 'g');
+    if(pattern) {
+        const re = new RegExp(pattern, 'g');
 
-    //Get string
-    const searchString = document.getElementById('incoming').value
-    
-    let matchArray;
-    let resultString = '<pre>';
-    let first = 0;
-    let last = 0;
+        //Get string
+        const searchString = document.getElementById('incoming').value
+        
+        let matchArray;
+        let resultString = '<pre>';
+        let first = 0;
+        let last = 0;
 
-    //find each match
-    while((matchArray = re.exec(searchString)) != null) {
-        last = matchArray.index
+        //find each match
+        while((matchArray = re.exec(searchString)) != null) {
+            last = matchArray.index
 
-        // get all of string up to match, concatenate
-        resultString += searchString.substring(first, last);
-        // add matched with class
-        resultString += `<span class="highlight">${matchArray[0]}</span>`;
-        first = re.lastIndex;
+            // get all of string up to match, concatenate
+            resultString += searchString.substring(first, last);
+            // add matched with class
+            resultString += `<span class="highlight">${matchArray[0]}</span>`;
+            first = re.lastIndex;
+        }
+
+        // finsish off the String
+        resultString += searchString.substring(first, searchString.length);
+        resultString += '</pre>'
+        
+        //insert into page
+        document.getElementById('search-result').innerHTML = resultString;
+    } else {
+        console.log("Please enter a search pattern");
     }
-
-    // finsish off the String
-    resultString += searchString.substring(first, searchString.length);
-    resultString += '</pre>'
     
-    //insert into page
-    document.getElementById('search-result').innerHTML = resultString;
 
 };
 
